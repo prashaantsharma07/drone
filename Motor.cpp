@@ -1,3 +1,5 @@
+#ifndef Motor
+#define Motor
 #include <Arduino.h>
 
 // Define GPIO pins for 4 motor PWM outputs
@@ -36,3 +38,4 @@ void setup() {
 void loop() {
   setMotorPWM(1,1000);
 }
+#endif
