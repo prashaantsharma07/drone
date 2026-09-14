@@ -1,15 +1,15 @@
-#ifndef PID_H
-#define PID_H
+#ifndef PID
+#define PID
 
 #include <Arduino.h>
 #include "mpu6050.h" // for dt, AngleRoll, AnglePitch, RateRollDegS, RatePitchDegS, RateYawDegS
 
-// ---- Setpoints - set these from your commander/receiver code before calling the PID functions ----
+
 float Desired_Roll_Angle  = 0;  
 float Desired_Pitch_Angle = 0;  
-float Desired_Yaw_Rate    = 0;  // deg/s - yaw has no angle loop, no absolute heading reference without a magnetometer
+float Desired_Yaw_Rate    = 0;  
 
-// ---- Trim (small offsets to null out physical imbalance) ----
+//Trim (small offsets to null out physical imbalance)
 float Roll_Trim  = 0.0;
 float Pitch_Trim = 0.0;
 
@@ -93,5 +93,3 @@ void resetPID() {
   Prev_Roll_Rate_Error = Prev_Pitch_Rate_Error = Prev_Yaw_Rate_Error = 0;
 }
 #endif
-
-#endif // PID_H
