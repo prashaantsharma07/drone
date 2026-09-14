@@ -1,3 +1,5 @@
+#ifndef mpu6050
+#define mpu6050
 #include <Wire.h>
 #include <BasicLinearAlgebra.h>
 
@@ -155,3 +157,4 @@ void loop() {
   while (micros() - LoopTimer < 4000);
   LoopTimer = micros();
 }
+#endif
