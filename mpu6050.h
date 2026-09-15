@@ -109,13 +109,6 @@ void processIMUData() {
   update1DKalman(KalmanAnglePitch, UncertaintyPitch, RatePitchDegS, AccAnglePitch);
   AngleYaw += RateYawDegS * dt; // Yaw integration (heading relative to startup)
 
-  //3. Logic to remove yaw drift
-  if (abs(RateYawDegS) < 3) RateYawDegS = 0;
-  bool isStationary = (AccXEarth == 0.0) && (AccYEarth == 0.0) && (AccZEarth == 0.0);
-  if (!isStationary) {
-    AngleYaw += RateYawDegS * dt;
-  }
-
   AngleRoll  = KalmanAngleRoll;
   AnglePitch = KalmanAnglePitch;
 
